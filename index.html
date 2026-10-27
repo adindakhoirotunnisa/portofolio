@@ -42,7 +42,7 @@ button{font:inherit;cursor:pointer}
 .play::before{content:"";position:absolute;top:0;left:-6px;width:14px;height:14px;background:#ff4d6d;border-radius:3px 3px 50% 50%}
 @keyframes spin{to{transform:rotate(360deg)}}
 /* sections */
-.about{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:center}
+.about{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:center}
 .photo{width:240px;height:auto;border-radius:24px;border:3px solid var(--blue);background:#000;display:block}
 @keyframes pulse{50%{box-shadow:0 0 0 18px color-mix(in srgb,var(--blue) 16%,transparent)}}
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
@@ -53,7 +53,10 @@ button{font:inherit;cursor:pointer}
 .card:hover{transform:translateY(-6px);border-color:var(--blue)}.card[hidden]{display:none}
 .thumb{height:180px;overflow:hidden;background:var(--ice)}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-dialog{width:min(640px,92vw)}
+.card div:last-child{padding:18px}.card h3{margin:0 0 6px;font-size:18px}.card small{color:var(--grey)}
+dialog{width:min(640px,92vw);border:1px solid var(--line);border-radius:20px;padding:30px;background:var(--card);color:var(--text)}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+dialog[open]{animation:pop .3s cubic-bezier(.2,.9,.3,1.2)}
 dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;background:#000;display:block;object-fit:contain}
 @keyframes pop{from{transform:scale(.9);opacity:0}}
 .skill{margin-bottom:18px}.skill span{font-weight:600;display:flex;justify-content:space-between}
@@ -79,13 +82,14 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 <header class="h h1">
   <div class="obj a1" data-s="40"><i></i></div><div class="obj a2" data-s="-30"><i></i></div><div class="obj a3" data-s="25"><i></i></div><div class="obj a4" data-s="-45"><i></i></div>
   <div><h1 aria-label="Portfolio"><span>P</span><span>O</span><span>R</span><span>T</span><span>F</span><span>O</span><span>L</span><span>I</span><span>O</span></h1>
-  <p class="sub">Editor video pendek dan copy wryter yang cepat belajar dan siap berkontribusi sejak hari pertama.</p>
+  <p class="sub">Editor video pendek dan copywriter yang cepat belajar dan siap berkontribusi sejak hari pertama.</p>
   <p class="role">ADINDA KHOIROTUNNISA · Video Editor (Reels &amp; TikTok) &amp; Copywriter</p></div>
   <div class="tl" aria-hidden="true"><div class="track"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="play"></div></div>
 </header>
 
 <section id="about"><h2>Tentang saya</h2>
- <img class="photo" src="profil.jpg" alt="profil.jpg">
+ <div class="about">
+<img class="photo" src="profil.jpg" alt="Foto Adinda Khoirotunnisa">
   <div><p>Profesional yang berdedikasi dan adaptif di Bandung dengan pengalaman lebih dari 2 tahun di bidang administrasi perkantoran, layanan pelanggan (customer service / food service), serta promosi penjualan ritel. Memiliki rekam jejak teruji dalam pengelolaan dokumen, pembukuan keuangan organisasi, serta komunikasi publik. Memiliki latar belakang seni pertunjukan (perkusi & tari jaipong) yang membentuk kedisiplinan kerja, kreativitas tinggi, serta kemampuan berkolaborasi dalam tim secara efektif.</p>
   <p>Saya mencari perusahaan untuk berkarier jangka panjang. Keunggulan saya: cepat beradaptasi dengan pekerjaan baru dalam waktu singkat.</p></div></div>
 </section>
@@ -103,10 +107,10 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 <section id="skills"><h2>Skill</h2>
   <div class="skill"><span>Editing video <em>85%</em></span><div class="bar"><i data-w="85"></i></div></div>
   <div class="skill"><span>Copywriting <em>85%</em></span><div class="bar"><i data-w="85"></i></div></div>
-  <div class="skill"><span>exel <em>80%</em></span><div class="bar"><i data-w="80"></i></div></div>
+  <div class="skill"><span>Excel <em>80%</em></span><div class="bar"><i data-w="80"></i></div></div>
   <div class="skill"><span>Affiliate marketing <em>90%</em></span><div class="bar"><i data-w="90"></i></div></div>
-  <div class="skill"><span>word <em>95%</em></span><div class="bar"><i data-w="95"></i></div></div>
-  <div class="skill"><span>public spek <em>80%</em></span><div class="bar"><i data-w="80"></i></div></div>
+  <div class="skill"><span>Word <em>95%</em></span><div class="bar"><i data-w="95"></i></div></div>
+  <div class="skill"><span> Public Speaking<em>80%</em></span><div class="bar"><i data-w="80"></i></div></div>
 </section>
 
 <section id="experience"><h2>Pengalaman &amp; pendidikan</h2>
