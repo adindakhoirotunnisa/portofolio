@@ -93,13 +93,13 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 <section id="projects"><h2>Proyek</h2>
   <div class="filters" id="filters"><button class="chip on" data-f="all">Semua</button><button class="chip" data-f="affiliate">Affiliate</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="clipper">Clipper</button></div>
   <div class="grid">
-    <button class="card" data-c="collaborasi brand" data-t="AFFILIATE (VOLTSHOP)" data-d="[Deskripsi proyek — ganti dengan penjelasan, peran, dan hasilmu.]"><div class="thumb">[Ganti dengan gambar proyek]</div><div><h3>AFFILIATE (VOLTSHOP)</h3><small>Affiliate marketing</small></div></button>
-    <button class="card" data-c="web" data-t="Affiliate Web Development &amp; Conceptual Design" data-d="[Deskripsi proyek — ganti dengan penjelasan, peran, dan hasilmu.]"><div class="thumb">[Ganti dengan gambar proyek]</div><div><h3>Affiliate Web Development &amp; Conceptual Design</h3><small>Web design</small></div></button>
-    <button class="card" data-c="clipper" data-t="Clipper (TikTok @voltmedia02)" data-d="[Deskripsi proyek — ganti dengan penjelasan, peran, dan hasilmu.]"><div class="thumb">[Ganti dengan gambar proyek]</div><div><h3>Clipper (TikTok @voltmedia02)</h3><small>Video pendek</small></div></button>
+   <button class="card" data-c="affiliate" data-t="AFFILIATE (VOLTSHOP)" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek1.jpg" data-video="proyek1.mp4">
+  <div class="thumb"><img src="proyek1.jpg" alt="AFFILIATE (VOLTSHOP)"></div>
+  <div><h3>AFFILIATE (VOLTSHOP)</h3><small>Affiliate marketing</small></div>
+</button>
   </div>
 </section>
-<dialog id="m"><h3 id="mt" style="margin-top:0"></h3><p id="md"></p><button class="chip on" id="mc">Tutup</button></dialog>
-
+<dialog id="m"><div id="mm"></div><h3 id="mt" style="margin-top:0"></h3><p id="md"></p><button class="chip on" id="mc">Tutup</button></dialog>
 <section id="skills"><h2>Skill</h2>
   <div class="skill"><span>Editing video <em>85%</em></span><div class="bar"><i data-w="85"></i></div></div>
   <div class="skill"><span>Copywriting <em>85%</em></span><div class="bar"><i data-w="85"></i></div></div>
@@ -122,10 +122,16 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;document.querySelectorAll('.obj').forEach(o=>{const s=+o.dataset.s||20;o.style.transform=`translate(${x*s}px,${y*s}px)`})});
 document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;document.querySelectorAll('#filters .chip').forEach(c=>c.classList.toggle('on',c===b));document.querySelectorAll('.card').forEach(c=>c.hidden=b.dataset.f!=='all'&&c.dataset.c!==b.dataset.f)});
 const m=document.getElementById('m');
-document.querySelectorAll('.card').forEach(c=>c.onclick=()=>{document.getElementById('mt').innerHTML=c.dataset.t;document.getElementById('md').textContent=c.dataset.d;m.showModal()});
-document.getElementById('mc').onclick=()=>m.close();m.addEventListener('click',e=>{if(e.target===m)m.close()});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.style.width=e.target.dataset.w+'%'}),{threshold:.4});
-document.querySelectorAll('.bar i').forEach(i=>io.observe(i));
+document.querySelectorAll('.card').forEach(c=>c.onclick=()=>{
+  document.getElementById('mt').innerHTML=c.dataset.t;
+  document.getElementById('md').textContent=c.dataset.d;
+  const box=document.getElementById('mm');
+  if(c.dataset.video){box.innerHTML=`<video class="media" src="${c.dataset.video}" poster="${c.dataset.img||''}" controls playsinline></video>`}
+  else if(c.dataset.img){box.innerHTML=`<img class="media" src="${c.dataset.img}" alt="${c.dataset.t}">`}
+  else{box.innerHTML=''}
+  m.showModal();
+});
+m.addEventListener('close',()=>{document.getElementById('mm').innerHTML=''});
 </script>
 </body>
 </html>
