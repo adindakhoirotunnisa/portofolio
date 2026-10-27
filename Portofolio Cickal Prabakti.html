@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio — Cickal Prabakti</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#0a1226;--ice:#111c3a;--blue:#6f97ff;--text:#f1f5ff;--grey:#bac6e2;--line:#2a3b68;--card:#0f1932;--hf:Manrope,sans-serif}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;line-height:1.65;transition:background .5s}
+section{padding:84px 6vw;max-width:1100px;margin:auto}
+h2{font-family:var(--hf);font-size:clamp(28px,5vw,44px);margin:0 0 26px;font-weight:700;letter-spacing:-.02em}
+p{color:var(--grey);max-width:62ch}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:22px;justify-content:center;padding:14px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav a{color:var(--grey);text-decoration:none;font-weight:600;font-size:14px}nav a:hover{color:var(--blue)}
+button{font:inherit;cursor:pointer}
+/* heroes */
+.h{display:grid;position:relative;min-height:92vh;overflow:hidden;padding:60px 6vw;place-items:center;text-align:center}
+.h .sub{position:relative;z-index:2;margin:20px auto 0;font-weight:600;font-size:clamp(16px,2.4vw,22px);max-width:34ch;color:var(--text)}
+.h .role{position:relative;z-index:2;color:var(--grey);margin:8px auto 0}
+.obj{position:absolute;z-index:1;transition:transform .25s ease-out}
+.obj i{display:block;animation:float var(--d,7s) ease-in-out infinite;animation-delay:var(--l,0s)}
+@keyframes float{50%{transform:translateY(-26px) rotate(12deg)}}
+/* konsep 1 */
+.h1{background:radial-gradient(circle at 50% 30%,var(--ice),var(--bg) 70%)}
+.h1 h1{font-size:clamp(46px,13vw,150px);line-height:.95;margin:0;font-weight:800;letter-spacing:-.04em;position:relative;z-index:2}
+.h1 h1 span{display:inline-block;animation:drop .8s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes drop{from{transform:translateY(-120%) rotate(-12deg);opacity:0}}
+.h1 h1 span:nth-child(2){animation-delay:.06s}.h1 h1 span:nth-child(3){animation-delay:.12s}.h1 h1 span:nth-child(4){animation-delay:.18s}.h1 h1 span:nth-child(5){animation-delay:.24s}.h1 h1 span:nth-child(6){animation-delay:.3s}.h1 h1 span:nth-child(7){animation-delay:.36s}.h1 h1 span:nth-child(8){animation-delay:.42s}.h1 h1 span:nth-child(9){animation-delay:.48s}
+.a1{left:8%;top:18%}.a1 i{width:90px;height:90px;border-radius:26px;background:var(--blue)}
+.a2{right:10%;top:14%}.a2 i{width:64px;height:64px;border-radius:50%;border:10px solid var(--blue);--d:8s}
+.a3{left:14%;bottom:20%}.a3 i{border-left:56px solid var(--text);border-top:34px solid transparent;border-bottom:34px solid transparent;--d:7s;opacity:.85}
+.a4{right:12%;bottom:22%}.a4 i{width:110px;height:50px;border-radius:12px;background:var(--ice);border:2px solid var(--blue);--d:9s}
+.tl{position:absolute;left:0;right:0;bottom:26px;height:44px;z-index:1}
+.track{position:absolute;inset:0;display:flex;gap:8px;width:200%;animation:slide 26s linear infinite}
+.track b{flex:1;border-radius:8px;background:var(--ice);border:1px solid var(--line)}.track b:nth-child(3n){background:var(--blue);opacity:.7}.track b:nth-child(4n+1){flex:2}
+@keyframes slide{to{transform:translateX(-50%)}}
+.play{position:absolute;left:50%;top:-14px;bottom:-14px;width:2px;background:#ff4d6d}
+.play::before{content:"";position:absolute;top:0;left:-6px;width:14px;height:14px;background:#ff4d6d;border-radius:3px 3px 50% 50%}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* sections */
+.about{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:center}
+.photo{width:200px;height:200px;border-radius:50%;background:var(--ice);border:3px solid var(--blue);display:grid;place-items:center;font-size:56px;font-weight:800;color:var(--blue);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 18px color-mix(in srgb,var(--blue) 16%,transparent)}}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.chip{padding:8px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--text);font-weight:600}
+.chip.on{background:var(--blue);border-color:var(--blue);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{border:1px solid var(--line);background:var(--card);border-radius:18px;padding:0;text-align:left;color:var(--text);overflow:hidden;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-6px);border-color:var(--blue)}.card[hidden]{display:none}
+.thumb{height:140px;background:var(--ice);display:grid;place-items:center;color:var(--blue);font-weight:700;font-size:13px}
+.card div:last-child{padding:18px}.card h3{margin:0 0 6px;font-size:18px}.card small{color:var(--grey)}
+dialog{border:1px solid var(--line);border-radius:20px;padding:30px;max-width:min(520px,92vw);background:var(--card);color:var(--text)}
+dialog::backdrop{background:rgba(0,0,0,.65)}dialog[open]{animation:pop .3s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+.skill{margin-bottom:18px}.skill span{font-weight:600;display:flex;justify-content:space-between}
+.bar{height:10px;border-radius:9px;background:var(--ice);overflow:hidden;margin-top:6px}
+.bar i{display:block;height:100%;width:0;background:var(--blue);border-radius:9px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.steps{border-left:2px solid var(--line);margin-left:8px;padding-left:28px}
+.steps div{position:relative;margin-bottom:26px}
+.steps div::before{content:"";position:absolute;left:-37px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid var(--bg)}
+.steps b{display:block}.steps small{color:var(--grey)}
+.contact{text-align:center;background:var(--ice);border:1px solid var(--line);border-radius:28px;margin:0 4vw 90px;max-width:none;padding:80px 6vw;position:relative;overflow:hidden}
+.contact h2{font-size:clamp(34px,8vw,80px)}.contact p{margin:0 auto 26px}
+.contact a{display:inline-block;margin:6px;padding:12px 24px;border-radius:99px;background:var(--text);color:var(--bg);font-weight:700;text-decoration:none;transition:transform .2s}
+.contact a:hover{transform:scale(1.07)}
+.cring{position:absolute;width:320px;height:320px;border-radius:50%;border:2px dashed var(--blue);right:-80px;top:-80px;animation:spin 18s linear infinite}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media(max-width:700px){.about{grid-template-columns:1fr;justify-items:start}.a4{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav><a href="#about">Tentang</a><a href="#projects">Proyek</a><a href="#skills">Skill</a><a href="#experience">Pengalaman</a><a href="#contact">Kontak</a></nav>
+
+<header class="h h1">
+  <div class="obj a1" data-s="40"><i></i></div><div class="obj a2" data-s="-30"><i></i></div><div class="obj a3" data-s="25"><i></i></div><div class="obj a4" data-s="-45"><i></i></div>
+  <div><h1 aria-label="Portfolio"><span>P</span><span>O</span><span>R</span><span>T</span><span>F</span><span>O</span><span>L</span><span>I</span><span>O</span></h1>
+  <p class="sub">Editor video pendek dan web designer yang cepat belajar dan siap berkontribusi sejak hari pertama.</p>
+  <p class="role">Cickal Prabakti · Video Editor (Reels &amp; TikTok) &amp; Copywriter</p></div>
+  <div class="tl" aria-hidden="true"><div class="track"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="play"></div></div>
+</header>
+
+<section id="about"><h2>Tentang saya</h2>
+  <div class="about"><div class="photo" role="img" aria-label="Foto profil (placeholder)">CP</div>
+  <div><p>Lulusan SMK tahun 2025 dengan pengalaman data entry, logistik, crew store, quality control, editing, dan driver ekspedisi, termasuk di PT Prima Food International. Saya mengelola produk digital di CapCut dan menekuni affiliate marketing, web design, dan clipper.</p>
+  <p>Saya mencari perusahaan untuk berkarier jangka panjang. Keunggulan saya: cepat beradaptasi dengan pekerjaan baru dalam waktu singkat.</p></div></div>
+</section>
+
+<section id="projects"><h2>Proyek</h2>
+  <div class="filters" id="filters"><button class="chip on" data-f="all">Semua</button><button class="chip" data-f="affiliate">Affiliate</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="clipper">Clipper</button></div>
+  <div class="grid">
+    <button class="card" data-c="affiliate" data-t="AFFILIATE (VOLTSHOP)" data-d="[Deskripsi proyek — ganti dengan penjelasan, peran, dan hasilmu.]"><div class="thumb">[Ganti dengan gambar proyek]</div><div><h3>AFFILIATE (VOLTSHOP)</h3><small>Affiliate marketing</small></div></button>
+    <button class="card" data-c="web" data-t="Affiliate Web Development &amp; Conceptual Design" data-d="[Deskripsi proyek — ganti dengan penjelasan, peran, dan hasilmu.]"><div class="thumb">[Ganti dengan gambar proyek]</div><div><h3>Affiliate Web Development &amp; Conceptual Design</h3><small>Web design</small></div></button>
+    <button class="card" data-c="clipper" data-t="Clipper (TikTok @voltmedia02)" data-d="[Deskripsi proyek — ganti dengan penjelasan, peran, dan hasilmu.]"><div class="thumb">[Ganti dengan gambar proyek]</div><div><h3>Clipper (TikTok @voltmedia02)</h3><small>Video pendek</small></div></button>
+  </div>
+</section>
+<dialog id="m"><h3 id="mt" style="margin-top:0"></h3><p id="md"></p><button class="chip on" id="mc">Tutup</button></dialog>
+
+<section id="skills"><h2>Skill</h2>
+  <div class="skill"><span>Editing video (CapCut) <em>[ganti %]</em></span><div class="bar"><i data-w="85"></i></div></div>
+  <div class="skill"><span>Copywriting <em>[ganti %]</em></span><div class="bar"><i data-w="75"></i></div></div>
+  <div class="skill"><span>Web design <em>[ganti %]</em></span><div class="bar"><i data-w="70"></i></div></div>
+  <div class="skill"><span>Affiliate marketing <em>[ganti %]</em></span><div class="bar"><i data-w="80"></i></div></div>
+</section>
+
+<section id="experience"><h2>Pengalaman &amp; pendidikan</h2>
+  <div class="steps"><div><b>SMK Setia Bhakti</b><small>2022–2025</small></div><div><b>Magang 6 bulan</b><small>[ganti dengan tempat &amp; tahun]</small></div><div><b>Freelance live house</b><small>[ganti dengan tahun]</small></div><div><b>Magang engine control</b><small>[ganti dengan tahun]</small></div><div><b>Magang konten produk</b><small>[ganti dengan tahun]</small></div></div>
+</section>
+
+<section class="contact" id="contact"><div class="cring"></div>
+  <h2>LET’S CONNECT</h2><p>Terbuka untuk pekerjaan penuh waktu maupun freelance editor Reels dan TikTok.</p>
+  <a href="mailto:emailkamu@example.com">Email</a><a href="#">LinkedIn [ganti link]</a><a href="#">WhatsApp [ganti link]</a><a href="#">Unduh CV [cickalprabakti-cv.pdf]</a>
+</section>
+
+<script>
+addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;document.querySelectorAll('.obj').forEach(o=>{const s=+o.dataset.s||20;o.style.transform=`translate(${x*s}px,${y*s}px)`})});
+document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;document.querySelectorAll('#filters .chip').forEach(c=>c.classList.toggle('on',c===b));document.querySelectorAll('.card').forEach(c=>c.hidden=b.dataset.f!=='all'&&c.dataset.c!==b.dataset.f)});
+const m=document.getElementById('m');
+document.querySelectorAll('.card').forEach(c=>c.onclick=()=>{document.getElementById('mt').innerHTML=c.dataset.t;document.getElementById('md').textContent=c.dataset.d;m.showModal()});
+document.getElementById('mc').onclick=()=>m.close();m.addEventListener('click',e=>{if(e.target===m)m.close()});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.style.width=e.target.dataset.w+'%'}),{threshold:.4});
+document.querySelectorAll('.bar i').forEach(i=>io.observe(i));
+</script>
+</body>
+</html>
