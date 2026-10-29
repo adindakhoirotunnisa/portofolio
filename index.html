@@ -17,14 +17,13 @@ p{color:var(--grey);max-width:62ch}
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:22px;justify-content:center;padding:14px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav a{color:var(--grey);text-decoration:none;font-weight:600;font-size:14px}nav a:hover{color:var(--blue)}
 button{font:inherit;cursor:pointer}
-/* heroes */
+/* hero */
 .h{display:grid;position:relative;min-height:92vh;overflow:hidden;padding:60px 6vw;place-items:center;text-align:center}
 .h .sub{position:relative;z-index:2;margin:20px auto 0;font-weight:600;font-size:clamp(16px,2.4vw,22px);max-width:34ch;color:var(--text)}
 .h .role{position:relative;z-index:2;color:var(--grey);margin:8px auto 0}
 .obj{position:absolute;z-index:1;transition:transform .25s ease-out}
 .obj i{display:block;animation:float var(--d,7s) ease-in-out infinite;animation-delay:var(--l,0s)}
 @keyframes float{50%{transform:translateY(-26px) rotate(12deg)}}
-/* konsep 1 */
 .h1{background:radial-gradient(circle at 50% 30%,var(--ice),var(--bg) 70%)}
 .h1 h1{font-size:clamp(46px,13vw,150px);line-height:.95;margin:0;font-weight:800;letter-spacing:-.04em;position:relative;z-index:2}
 .h1 h1 span{display:inline-block;animation:drop .8s cubic-bezier(.2,.9,.3,1.2) both}
@@ -41,10 +40,10 @@ button{font:inherit;cursor:pointer}
 .play{position:absolute;left:50%;top:-14px;bottom:-14px;width:2px;background:#ff4d6d}
 .play::before{content:"";position:absolute;top:0;left:-6px;width:14px;height:14px;background:#ff4d6d;border-radius:3px 3px 50% 50%}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* sections */
+/* about */
 .about{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:center}
 .photo{width:240px;height:auto;border-radius:24px;border:3px solid var(--blue);background:#000;display:block}
-@keyframes pulse{50%{box-shadow:0 0 0 18px color-mix(in srgb,var(--blue) 16%,transparent)}}
+/* proyek */
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
 .chip{padding:8px 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--text);font-weight:600}
 .chip.on{background:var(--blue);border-color:var(--blue);color:var(--bg)}
@@ -59,6 +58,7 @@ dialog::backdrop{background:rgba(0,0,0,.65)}
 dialog[open]{animation:pop .3s cubic-bezier(.2,.9,.3,1.2)}
 dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;background:#000;display:block;object-fit:contain}
 @keyframes pop{from{transform:scale(.9);opacity:0}}
+/* skill */
 .sks{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:30px}
 .sk{text-align:center;animation:bob 5s ease-in-out infinite}
 .sk:nth-child(2n){animation-delay:-1.5s}.sk:nth-child(3n){animation-delay:-3s}
@@ -71,27 +71,30 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 .dial .fg{stroke:var(--blue);stroke-dasharray:327;stroke-dashoffset:327;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 0 6px var(--blue))}
 .dial b{position:absolute;inset:0;display:grid;place-items:center;font-size:26px;font-weight:800}
 .sk span{display:block;margin-top:16px;font-weight:600}
+/* pengalaman */
 .steps{border-left:2px solid var(--line);margin-left:8px;padding-left:28px}
 .steps div{position:relative;margin-bottom:26px}
 .steps div::before{content:"";position:absolute;left:-37px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid var(--bg)}
 .steps b{display:block}.steps small{color:var(--grey)}
+.more{margin-top:10px;padding:7px 16px;border-radius:99px;border:1px solid var(--blue);background:transparent;color:var(--blue);font-weight:600;font-size:13px}
+.more:hover{background:var(--blue);color:var(--bg)}
+.gal{display:grid;gap:12px;margin:14px 0}
+.gal img,.gal video{width:100%;max-height:55vh;object-fit:contain;border-radius:12px;background:#000;display:block}
+/* kontak */
 .contact{text-align:center;background:var(--ice);border:1px solid var(--line);border-radius:28px;margin:0 4vw 90px;max-width:none;padding:80px 6vw;position:relative;overflow:hidden}
 .contact h2{font-size:clamp(34px,8vw,80px)}.contact p{margin:0 auto 26px}
 .contact a{display:inline-block;margin:6px;padding:12px 24px;border-radius:99px;background:var(--text);color:var(--bg);font-weight:700;text-decoration:none;transition:transform .2s}
 .contact a:hover{transform:scale(1.07)}
 .cring{position:absolute;width:320px;height:320px;border-radius:50%;border:2px dashed var(--blue);right:-80px;top:-80px;animation:spin 18s linear infinite}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-@media(max-width:700px){.about{grid-template-columns:1fr;justify-items:start}.a4{display:none}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-  .more{margin-top:10px;padding:7px 16px;border-radius:99px;border:1px solid var(--blue);background:transparent;color:var(--blue);font-weight:600;font-size:13px}
-.more:hover{background:var(--blue);color:var(--bg)}
-.gal{display:grid;gap:12px;margin:14px 0}
-.gal img,.gal video{width:100%;max-height:55vh;object-fit:contain;border-radius:12px;background:#000;display:block}
+/* musik */
 .mp{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:99px;background:var(--card);border:1px solid var(--line)}
 .mp button{width:38px;height:38px;border-radius:50%;border:0;background:var(--blue);color:var(--bg);font-size:16px}
 .mp.on button{animation:mpulse 2s ease-in-out infinite}
 @keyframes mpulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--blue) 25%,transparent)}}
 .mp input{width:90px;accent-color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media(max-width:700px){.about{grid-template-columns:1fr;justify-items:start}.a4{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -106,33 +109,33 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 </header>
 
 <section id="about"><h2>Tentang saya</h2>
- <div class="about">
-<img class="photo" src="profil.jpg" alt="Foto Adinda Khoirotunnisa">
-  <div><p>Profesional yang berdedikasi dan adaptif di Bandung dengan pengalaman lebih dari 2 tahun di bidang administrasi perkantoran, layanan pelanggan (customer service / food service), serta promosi penjualan ritel. Memiliki rekam jejak teruji dalam pengelolaan dokumen, pembukuan keuangan organisasi, serta komunikasi publik. Memiliki latar belakang seni pertunjukan (perkusi & tari jaipong) yang membentuk kedisiplinan kerja, kreativitas tinggi, serta kemampuan berkolaborasi dalam tim secara efektif.</p>
-  <p>Saya mencari perusahaan untuk berkarier jangka panjang. Keunggulan saya: cepat beradaptasi dengan pekerjaan baru dalam waktu singkat.</p></div></div>
+  <div class="about">
+    <img class="photo" src="profil.jpg" alt="Foto Adinda Khoirotunnisa">
+    <div><p>Profesional yang berdedikasi dan adaptif di Bandung dengan pengalaman lebih dari 2 tahun di bidang administrasi perkantoran, layanan pelanggan (customer service / food service), serta promosi penjualan ritel. Memiliki rekam jejak teruji dalam pengelolaan dokumen, pembukuan keuangan organisasi, serta komunikasi publik. Memiliki latar belakang seni pertunjukan (perkusi &amp; tari jaipong) yang membentuk kedisiplinan kerja, kreativitas tinggi, serta kemampuan berkolaborasi dalam tim secara efektif.</p>
+    <p>Saya mencari perusahaan untuk berkarier jangka panjang. Keunggulan saya: cepat beradaptasi dengan pekerjaan baru dalam waktu singkat.</p></div>
+  </div>
 </section>
 
 <section id="projects"><h2>Proyek</h2>
   <div class="filters" id="filters"><button class="chip on" data-f="all">Semua</button><button class="chip" data-f="affiliate">Affiliate</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="clipper">Clipper</button></div>
-<div class="grid">
-  <div class="filters" id="filters"><button class="chip on" data-f="all">Semua</button><button class="chip" data-f="affiliate">Affiliate</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="clipper">Clipper</button></div>
-<div class="grid">
-  <button class="card" data-c="affiliate" data-t="AFFILIATE (VOLTSHOP)" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek1.jpg" data-video="proyek1.mp4">
-  <div class="thumb"><img src="proyek1.jpg" alt="AFFILIATE (VOLTSHOP)"></div>
-  <div><h3>AFFILIATE (VOLTSHOP)</h3><small>Affiliate marketing</small></div>
-</button>
-<button class="card" data-c="web" data-t="Affiliate Web Development &amp; Conceptual Design" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek2.jpg">
-  <div class="thumb"><img src="proyek2.jpg" alt="Affiliate Web Development"></div>
-  <div><h3>Affiliate Web Development &amp; Conceptual Design</h3><small>Web design</small></div>
-</button>
-<button class="card" data-c="clipper" data-t="Clipper (TikTok @voltmedia02)" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek3.jpg" data-video="proyek3.mp4">
-  <div class="thumb"><img src="proyek3.jpg" alt="Clipper TikTok voltmedia02"></div>
-  <div><h3>Clipper (TikTok @voltmedia02)</h3><small>Video pendek</small></div>
-</button>
+  <div class="grid">
+    <button class="card" data-c="affiliate" data-t="AFFILIATE (VOLTSHOP)" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek1.jpg" data-video="proyek1.mp4">
+      <div class="thumb"><img src="proyek1.jpg" alt="AFFILIATE (VOLTSHOP)"></div>
+      <div><h3>AFFILIATE (VOLTSHOP)</h3><small>Affiliate marketing</small></div>
+    </button>
+    <button class="card" data-c="web" data-t="Affiliate Web Development &amp; Conceptual Design" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek2.jpg">
+      <div class="thumb"><img src="proyek2.jpg" alt="Affiliate Web Development"></div>
+      <div><h3>Affiliate Web Development &amp; Conceptual Design</h3><small>Web design</small></div>
+    </button>
+    <button class="card" data-c="clipper" data-t="Clipper (TikTok @voltmedia02)" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek3.jpg" data-video="proyek3.mp4">
+      <div class="thumb"><img src="proyek3.jpg" alt="Clipper TikTok voltmedia02"></div>
+      <div><h3>Clipper (TikTok @voltmedia02)</h3><small>Video pendek</small></div>
+    </button>
   </div>
+</section>
+<dialog id="m"><div id="mm"></div><h3 id="mt" style="margin-top:0"></h3><p id="md"></p><button class="chip on" id="mc">Tutup</button></dialog>
+
 <section id="skills"><h2>Skill</h2>
-  <div class="skill"><span>Editing video <em>85%</em></span><div class="bar"><i data-w="85"></i></div></div>
- <section id="skills"><h2>Skill</h2>
   <div class="sks">
     <div class="sk" data-v="85"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Editing video</span></div>
     <div class="sk" data-v="85"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Copywriting</span></div>
@@ -140,34 +143,40 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
     <div class="sk" data-v="90"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Affiliate marketing</span></div>
     <div class="sk" data-v="95"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Word</span></div>
     <div class="sk" data-v="80"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Public Speaking</span></div>
-    <section id="experience"><h2>Pengalaman &amp; pendidikan</h2>
   </div>
 </section>
-<div class="steps">
-  <div><b>UNIVERSITAS TERBUKA BANDUNG</b><small>2024–2029</small></div>
-  <div><b>Administrasi bisnis</b><small>Bandung · 2024–2029</small>
-    <button class="more" data-t="Penyusunan Jurnal" data-d="Tulis penjelasan singkat di sini." data-m="jurnal1.jpg,jurnal1.mp4">Lihat foto &amp; video</button></div>
-  <div><b>Freelance content</b><small>2025</small></div>
-  <div><b>Kolaborasi brand</b><small>Coivape · review + promosi</small>
-    <button class="more" data-t="Review + promosi Coivape" data-d="Tulis penjelasan singkat di sini." data-m="coivape1.jpg">Lihat foto</button></div>
-  <div><b>Bintang tamu Laporpakk</b><small>[ganti dengan tahun]</small></div>
-    <span class="mr"><video src="konten1.mp4" controls playsinline preload="metadata"></video></span>
+
+<section id="experience"><h2>Pengalaman &amp; pendidikan</h2>
+  <div class="steps">
+    <div><b>UNIVERSITAS TERBUKA BANDUNG</b><small>2024–2029</small></div>
+    <div><b>Administrasi bisnis</b><small>Bandung · 2024–2029</small>
+      <button class="more" data-t="Penyusunan Jurnal" data-d="Tulis penjelasan singkat di sini." data-m="jurnal1.jpg,jurnal1.mp4">Lihat foto &amp; video</button></div>
+    <div><b>Freelance content</b><small>2025</small></div>
+    <div><b>Kolaborasi brand</b><small>Coivape · review + promosi</small>
+      <button class="more" data-t="Review + promosi Coivape" data-d="Tulis penjelasan singkat di sini." data-m="coivape1.jpg">Lihat foto</button></div>
+    <div><b>Bintang tamu Laporpakk</b><small>[ganti dengan tahun]</small></div>
+    <div><b>Talent perkusi</b><small>[ganti dengan tahun]</small>
+      <button class="more" data-t="Talent perkusi" data-d="Tulis penjelasan singkat di sini." data-m="perkusi1.mp4">Lihat video</button></div>
   </div>
-</div>
 </section>
 
 <section class="contact" id="contact"><div class="cring"></div>
   <h2>LET’S CONNECT</h2><p>Terbuka untuk pekerjaan penuh waktu maupun freelance editor Reels dan TikTok.</p>
   <a href="mailto:ndadinda1238@gmail.com" aria-label="Kirim email">Email</a><a href="https://www.linkedin.com/in/adinda-khoirotunnisa-746546372" target="_blank" rel="noopener">LinkedIn</a><a href="https://wa.me/6281312205229" target="_blank" rel="noopener">WhatsApp</a><a href="dinda-cv.pdf" download>Unduh CV</a>
 </section>
-<dialog id="xp"><h3 id="xt" style="margin-top:0"></h3><p id="xd"></p><div id="xg" class="gal"></div><button class="chip on" id="xc">Tutup</button></dialog>
 
+<dialog id="xp"><h3 id="xt" style="margin-top:0"></h3><p id="xd"></p><div id="xg" class="gal"></div><button class="chip on" id="xc">Tutup</button></dialog>
 <audio id="bgm" src="music.mp3" loop preload="none"></audio>
 <dialog id="welcome"><h3 style="margin-top:0">Selamat datang</h3><p>Putar musik latar untuk menemani Anda melihat portofolio ini? Volume bisa diatur kapan saja.</p><button class="chip on" id="wy">Putar musik</button> <button class="chip" id="wn">Tanpa musik</button></dialog>
 <div class="mp" id="mp"><button id="mpb" aria-label="Putar atau jeda musik">♪</button><input id="mpv" type="range" min="0" max="100" value="20" aria-label="Volume musik"></div>
+
 <script>
 addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;document.querySelectorAll('.obj').forEach(o=>{const s=+o.dataset.s||20;o.style.transform=`translate(${x*s}px,${y*s}px)`})});
+
+/* filter proyek */
 document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;document.querySelectorAll('#filters .chip').forEach(c=>c.classList.toggle('on',c===b));document.querySelectorAll('.card').forEach(c=>c.hidden=b.dataset.f!=='all'&&c.dataset.c!==b.dataset.f)});
+
+/* popup proyek */
 const m=document.getElementById('m');
 document.querySelectorAll('.card').forEach(c=>c.onclick=()=>{
   document.getElementById('mt').innerHTML=c.dataset.t;
@@ -178,8 +187,12 @@ document.querySelectorAll('.card').forEach(c=>c.onclick=()=>{
   else{box.innerHTML=''}
   m.showModal();
 });
+document.getElementById('mc').onclick=()=>m.close();
+m.addEventListener('click',e=>{if(e.target===m)m.close()});
 m.addEventListener('close',()=>{document.getElementById('mm').innerHTML=''});
-  const xp=document.getElementById('xp'),xg=document.getElementById('xg');
+
+/* popup foto & video pengalaman */
+const xp=document.getElementById('xp'),xg=document.getElementById('xg');
 document.querySelectorAll('.more').forEach(b=>b.onclick=()=>{
   document.getElementById('xt').textContent=b.dataset.t;
   document.getElementById('xd').textContent=b.dataset.d||'';
@@ -199,14 +212,17 @@ document.getElementById('xc').onclick=()=>xp.close();
 xp.addEventListener('click',e=>{if(e.target===xp)xp.close()});
 xp.addEventListener('close',()=>{xg.innerHTML=''});
 
+/* lingkaran skill */
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const r=e.target,v=+r.dataset.v;r.querySelector('.fg').style.strokeDashoffset=327*(1-v/100);const n=r.querySelector('b');let t=0;const s=setInterval(()=>{t+=2;if(t>=v){t=v;clearInterval(s)}n.textContent=t+'%'},25);rio.unobserve(r)}),{threshold:.5});
+document.querySelectorAll('.sk').forEach(r=>rio.observe(r));
+
+/* musik */
 const a=document.getElementById('bgm'),mp=document.getElementById('mp'),vol=document.getElementById('mpv'),w=document.getElementById('welcome');
 a.volume=vol.value/100;
 const setOn=on=>{mp.classList.toggle('on',on);document.getElementById('mpb').textContent=on?'❚❚':'♪'};
 const play=()=>a.play().then(()=>setOn(true)).catch(()=>setOn(false));
 document.getElementById('mpb').onclick=()=>a.paused?play():(a.pause(),setOn(false));
 vol.oninput=()=>{a.volume=vol.value/100};
-    const rio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const r=e.target,v=+r.dataset.v;r.querySelector('.fg').style.strokeDashoffset=327*(1-v/100);const n=r.querySelector('b');let t=0;const s=setInterval(()=>{t+=2;if(t>=v){t=v;clearInterval(s)}n.textContent=t+'%'},25);rio.unobserve(r)}),{threshold:.5});
-document.querySelectorAll('.sk').forEach(r=>rio.observe(r));
 document.getElementById('wy').onclick=()=>{w.close();play()};
 document.getElementById('wn').onclick=()=>w.close();
 addEventListener('load',()=>setTimeout(()=>w.showModal(),600));
