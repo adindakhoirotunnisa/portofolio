@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Portofolio — ADINDA KHOIROTUNNISA</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap">
+  .more{margin-top:10px;padding:7px 16px;border-radius:99px;border:1px solid var(--blue);background:transparent;color:var(--blue);font-weight:600;font-size:13px}
+.more:hover{background:var(--blue);color:var(--bg)}
+.gal{display:grid;gap:12px;margin:14px 0}
+.gal img,.gal video{width:100%;max-height:55vh;object-fit:contain;border-radius:12px;background:#000;display:block}
+.mp{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:99px;background:var(--card);border:1px solid var(--line)}
+.mp button{width:38px;height:38px;border-radius:50%;border:0;background:var(--blue);color:var(--bg);font-size:16px}
+.mp.on button{animation:mpulse 2s ease-in-out infinite}
+@keyframes mpulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--blue) 25%,transparent)}}
+.mp input{width:90px;accent-color:var(--blue)}
 <style>
 :root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg:#0a1226;--ice:#111c3a;--blue:#6f97ff;--text:#f1f5ff;--grey:#bac6e2;--line:#2a3b68;--card:#0f1932;--hf:Manrope,sans-serif}
@@ -133,9 +142,15 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 </section>
 <div class="steps">
   <div><b>UNIVERSITAS TERBUKA BANDUNG</b><small>2024–2029</small></div>
-  <div><b>administrasi bisnis</b><small>BANDUNG &amp; 2024-2029</small>
-    <span class="mr"><img src="tugas.jpg" alt="Penyusunan Jurnal" loading="lazy"><video src="magang1.mp4" controls playsinline preload="metadata"></video></span>
-  </div>
+  <div><b>Administrasi bisnis</b><small>Bandung · 2024–2029</small>
+    <button class="more" data-t="Penyusunan Jurnal" data-d="Tulis penjelasan singkat di sini." data-m="jurnal1.jpg,jurnal1.mp4">Lihat foto &amp; video</button></div>
+  <div><b>Freelance content</b><small>2025</small></div>
+  <div><b>Kolaborasi brand</b><small>Coivape · review + promosi</small>
+    <button class="more" data-t="Review + promosi Coivape" data-d="Tulis penjelasan singkat di sini." data-m="coivape1.jpg">Lihat foto</button></div>
+  <div><b>Bintang tamu Laporpakk</b><small>[ganti dengan tahun]</small></div>
+  <div><b>Talent perkusi</b><small>[ganti dengan tahun]</small>
+    <button class="more" data-t="Talent perkusi" data-d="Tulis penjelasan singkat di sini." data-m="perkusi1.mp4">Lihat video</button></div>
+</div>
   <div><b>Freelance content</b><small>2025</small>
      <div><b>collaborasi brand</b><small>coivape</small>
     <span class="mr"><img src="brand.mp4" alt="riview+promosi" loading="lazy"></span>
@@ -151,7 +166,11 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
   <h2>LET’S CONNECT</h2><p>Terbuka untuk pekerjaan penuh waktu maupun freelance editor Reels dan TikTok.</p>
   <a href="mailto:ndadinda1238@gmail.com" aria-label="Kirim email">Email</a><a href="https://www.linkedin.com/in/adinda-khoirotunnisa-746546372" target="_blank" rel="noopener">LinkedIn</a><a href="https://wa.me/6281312205229" target="_blank" rel="noopener">WhatsApp</a><a href="dinda-cv.pdf" download>Unduh CV</a>
 </section>
+<dialog id="xp"><h3 id="xt" style="margin-top:0"></h3><p id="xd"></p><div id="xg" class="gal"></div><button class="chip on" id="xc">Tutup</button></dialog>
 
+<audio id="bgm" src="music.mp3" loop preload="none"></audio>
+<dialog id="welcome"><h3 style="margin-top:0">Selamat datang</h3><p>Putar musik latar untuk menemani Anda melihat portofolio ini? Volume bisa diatur kapan saja.</p><button class="chip on" id="wy">Putar musik</button> <button class="chip" id="wn">Tanpa musik</button></dialog>
+<div class="mp" id="mp"><button id="mpb" aria-label="Putar atau jeda musik">♪</button><input id="mpv" type="range" min="0" max="100" value="20" aria-label="Volume musik"></div>
 <script>
 addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;document.querySelectorAll('.obj').forEach(o=>{const s=+o.dataset.s||20;o.style.transform=`translate(${x*s}px,${y*s}px)`})});
 document.getElementById('filters').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;document.querySelectorAll('#filters .chip').forEach(c=>c.classList.toggle('on',c===b));document.querySelectorAll('.card').forEach(c=>c.hidden=b.dataset.f!=='all'&&c.dataset.c!==b.dataset.f)});
@@ -166,6 +185,35 @@ document.querySelectorAll('.card').forEach(c=>c.onclick=()=>{
   m.showModal();
 });
 m.addEventListener('close',()=>{document.getElementById('mm').innerHTML=''});
+  const xp=document.getElementById('xp'),xg=document.getElementById('xg');
+document.querySelectorAll('.more').forEach(b=>b.onclick=()=>{
+  document.getElementById('xt').textContent=b.dataset.t;
+  document.getElementById('xd').textContent=b.dataset.d||'';
+  xg.innerHTML='';
+  b.dataset.m.split(',').forEach(f=>{
+    f=f.trim();
+    const v=/\.(mp4|webm|mov)$/i.test(f);
+    const el=document.createElement(v?'video':'img');
+    el.src=f;
+    if(v){el.controls=true;el.playsInline=true;el.preload='metadata'}else{el.alt=b.dataset.t;el.loading='lazy'}
+    el.onerror=()=>{const p=document.createElement('p');p.textContent='File "'+f+'" tidak ditemukan di repository.';el.replaceWith(p)};
+    xg.appendChild(el);
+  });
+  xp.showModal();
+});
+document.getElementById('xc').onclick=()=>xp.close();
+xp.addEventListener('click',e=>{if(e.target===xp)xp.close()});
+xp.addEventListener('close',()=>{xg.innerHTML=''});
+
+const a=document.getElementById('bgm'),mp=document.getElementById('mp'),vol=document.getElementById('mpv'),w=document.getElementById('welcome');
+a.volume=vol.value/100;
+const setOn=on=>{mp.classList.toggle('on',on);document.getElementById('mpb').textContent=on?'❚❚':'♪'};
+const play=()=>a.play().then(()=>setOn(true)).catch(()=>setOn(false));
+document.getElementById('mpb').onclick=()=>a.paused?play():(a.pause(),setOn(false));
+vol.oninput=()=>{a.volume=vol.value/100};
+document.getElementById('wy').onclick=()=>{w.close();play()};
+document.getElementById('wn').onclick=()=>w.close();
+addEventListener('load',()=>setTimeout(()=>w.showModal(),600));
 </script>
   const rio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const r=e.target,v=+r.dataset.v;r.querySelector('.fg').style.strokeDashoffset=327*(1-v/100);const n=r.querySelector('b');let t=0;const s=setInterval(()=>{t+=2;if(t>=v){t=v;clearInterval(s)}n.textContent=t+'%'},25);rio.unobserve(r)}),{threshold:.5});
 document.querySelectorAll('.sk').forEach(r=>rio.observe(r));
