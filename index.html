@@ -5,15 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Portofolio — ADINDA KHOIROTUNNISA</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap">
-  .more{margin-top:10px;padding:7px 16px;border-radius:99px;border:1px solid var(--blue);background:transparent;color:var(--blue);font-weight:600;font-size:13px}
-.more:hover{background:var(--blue);color:var(--bg)}
-.gal{display:grid;gap:12px;margin:14px 0}
-.gal img,.gal video{width:100%;max-height:55vh;object-fit:contain;border-radius:12px;background:#000;display:block}
-.mp{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:99px;background:var(--card);border:1px solid var(--line)}
-.mp button{width:38px;height:38px;border-radius:50%;border:0;background:var(--blue);color:var(--bg);font-size:16px}
-.mp.on button{animation:mpulse 2s ease-in-out infinite}
-@keyframes mpulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--blue) 25%,transparent)}}
-.mp input{width:90px;accent-color:var(--blue)}
 <style>
 :root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg:#0a1226;--ice:#111c3a;--blue:#6f97ff;--text:#f1f5ff;--grey:#bac6e2;--line:#2a3b68;--card:#0f1932;--hf:Manrope,sans-serif}
@@ -92,6 +83,15 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 @media(max-width:700px){.about{grid-template-columns:1fr;justify-items:start}.a4{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  .more{margin-top:10px;padding:7px 16px;border-radius:99px;border:1px solid var(--blue);background:transparent;color:var(--blue);font-weight:600;font-size:13px}
+.more:hover{background:var(--blue);color:var(--bg)}
+.gal{display:grid;gap:12px;margin:14px 0}
+.gal img,.gal video{width:100%;max-height:55vh;object-fit:contain;border-radius:12px;background:#000;display:block}
+.mp{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9;display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:99px;background:var(--card);border:1px solid var(--line)}
+.mp button{width:38px;height:38px;border-radius:50%;border:0;background:var(--blue);color:var(--bg);font-size:16px}
+.mp.on button{animation:mpulse 2s ease-in-out infinite}
+@keyframes mpulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--blue) 25%,transparent)}}
+.mp input{width:90px;accent-color:var(--blue)}
 </style>
 </head>
 <body>
@@ -115,6 +115,8 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 <section id="projects"><h2>Proyek</h2>
   <div class="filters" id="filters"><button class="chip on" data-f="all">Semua</button><button class="chip" data-f="affiliate">Affiliate</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="clipper">Clipper</button></div>
 <div class="grid">
+  <div class="filters" id="filters"><button class="chip on" data-f="all">Semua</button><button class="chip" data-f="affiliate">Affiliate</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="clipper">Clipper</button></div>
+<div class="grid">
   <button class="card" data-c="affiliate" data-t="AFFILIATE (VOLTSHOP)" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek1.jpg" data-video="proyek1.mp4">
   <div class="thumb"><img src="proyek1.jpg" alt="AFFILIATE (VOLTSHOP)"></div>
   <div><h3>AFFILIATE (VOLTSHOP)</h3><small>Affiliate marketing</small></div>
@@ -128,8 +130,6 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
   <div><h3>Clipper (TikTok @voltmedia02)</h3><small>Video pendek</small></div>
 </button>
   </div>
-</section>
-<dialog id="m"><div id="mm"></div><h3 id="mt" style="margin-top:0"></h3><p id="md"></p><button class="chip on" id="mc">Tutup</button></dialog>
 <section id="skills"><h2>Skill</h2>
   <div class="skill"><span>Editing video <em>85%</em></span><div class="bar"><i data-w="85"></i></div></div>
  <section id="skills"><h2>Skill</h2>
@@ -140,9 +140,9 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
     <div class="sk" data-v="90"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Affiliate marketing</span></div>
     <div class="sk" data-v="95"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Word</span></div>
     <div class="sk" data-v="80"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Public Speaking</span></div>
+    <section id="experience"><h2>Pengalaman &amp; pendidikan</h2>
   </div>
 </section>
-  <section id="experience"><h2>Pengalaman &amp; pendidikan</h2>
 <div class="steps">
   <div><b>UNIVERSITAS TERBUKA BANDUNG</b><small>2024–2029</small></div>
   <div><b>Administrasi bisnis</b><small>Bandung · 2024–2029</small>
@@ -151,15 +151,6 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
   <div><b>Kolaborasi brand</b><small>Coivape · review + promosi</small>
     <button class="more" data-t="Review + promosi Coivape" data-d="Tulis penjelasan singkat di sini." data-m="coivape1.jpg">Lihat foto</button></div>
   <div><b>Bintang tamu Laporpakk</b><small>[ganti dengan tahun]</small></div>
-  <div><b>Talent perkusi</b><small>[ganti dengan tahun]</small>
-    <button class="more" data-t="Talent perkusi" data-d="Tulis penjelasan singkat di sini." data-m="perkusi1.mp4">Lihat video</button></div>
-</div>
-  <div><b>Freelance content</b><small>2025</small>
-     <div><b>collaborasi brand</b><small>coivape</small>
-    <span class="mr"><img src="brand.mp4" alt="riview+promosi" loading="lazy"></span>
-  </div>
-  <div><b>bintang tamu laporpakk</b><small>[ganti dengan tahun]</small></div>
-  <div><b>talent perkusi</b><small>[ganti dengan tahun]</small>
     <span class="mr"><video src="konten1.mp4" controls playsinline preload="metadata"></video></span>
   </div>
 </div>
