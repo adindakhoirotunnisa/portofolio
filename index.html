@@ -113,6 +113,8 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
 </section>
 
 <section id="projects"><h2>Proyek</h2>
+  <div class="filters" id="filters"><button class="chip on" data-f="all">Semua</button><button class="chip" data-f="affiliate">Affiliate</button><button class="chip" data-f="web">Web</button><button class="chip" data-f="clipper">Clipper</button></div>
+<div class="grid">
   <button class="card" data-c="affiliate" data-t="AFFILIATE (VOLTSHOP)" data-d="Tulis penjelasan proyekmu di sini." data-img="proyek1.jpg" data-video="proyek1.mp4">
   <div class="thumb"><img src="proyek1.jpg" alt="AFFILIATE (VOLTSHOP)"></div>
   <div><h3>AFFILIATE (VOLTSHOP)</h3><small>Affiliate marketing</small></div>
@@ -140,6 +142,7 @@ dialog .media{width:100%;max-height:60vh;border-radius:12px;margin-bottom:14px;b
     <div class="sk" data-v="80"><div class="dial"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b>0%</b></div><span>Public Speaking</span></div>
   </div>
 </section>
+  <section id="experience"><h2>Pengalaman &amp; pendidikan</h2>
 <div class="steps">
   <div><b>UNIVERSITAS TERBUKA BANDUNG</b><small>2024–2029</small></div>
   <div><b>Administrasi bisnis</b><small>Bandung · 2024–2029</small>
@@ -211,11 +214,11 @@ const setOn=on=>{mp.classList.toggle('on',on);document.getElementById('mpb').tex
 const play=()=>a.play().then(()=>setOn(true)).catch(()=>setOn(false));
 document.getElementById('mpb').onclick=()=>a.paused?play():(a.pause(),setOn(false));
 vol.oninput=()=>{a.volume=vol.value/100};
+    const rio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const r=e.target,v=+r.dataset.v;r.querySelector('.fg').style.strokeDashoffset=327*(1-v/100);const n=r.querySelector('b');let t=0;const s=setInterval(()=>{t+=2;if(t>=v){t=v;clearInterval(s)}n.textContent=t+'%'},25);rio.unobserve(r)}),{threshold:.5});
+document.querySelectorAll('.sk').forEach(r=>rio.observe(r));
 document.getElementById('wy').onclick=()=>{w.close();play()};
 document.getElementById('wn').onclick=()=>w.close();
 addEventListener('load',()=>setTimeout(()=>w.showModal(),600));
 </script>
-  const rio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const r=e.target,v=+r.dataset.v;r.querySelector('.fg').style.strokeDashoffset=327*(1-v/100);const n=r.querySelector('b');let t=0;const s=setInterval(()=>{t+=2;if(t>=v){t=v;clearInterval(s)}n.textContent=t+'%'},25);rio.unobserve(r)}),{threshold:.5});
-document.querySelectorAll('.sk').forEach(r=>rio.observe(r));
 </body>
 </html>
